@@ -41,13 +41,40 @@ public class AfishRepositoryTest {
 
     }
 
-
     @Test
-    public void test() {
-        FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
-    FilmItem[] actual= films.findLast();
-    Assertions.assertArrayEquals(expected, actual);
+    public void shouldFindAll() {
+        FilmItem[] expected = {item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13};
+        FilmItem[] actual = films.findAll();
+        Assertions.assertArrayEquals(expected, actual);
     }
 
 
+    @Test
+    public void shouldFindLastTen() {
+        FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4};
+        FilmItem[] actual = films.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindLastSetNumber() {
+        FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
+        FilmItem[] actual = films.findLastSetNumber(50);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindMoreAllLast() {
+        FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
+        FilmItem[] actual = films.findLastSetNumber(15);
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindOneLast() {
+        FilmItem[] expected = {item13};
+        FilmItem[] actual = films.findLastSetNumber(1);
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
+
