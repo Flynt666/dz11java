@@ -1,9 +1,17 @@
 package ru.netology.afish;
 
 public class AfishRepository {
-    int maxLenght = 10;
-    private FilmItem[] items = new FilmItem[0];
 
+    private FilmItem[] items = new FilmItem[0];
+    private int maxLength;
+
+    public AfishRepository() {
+        this.maxLength = 10;
+    }
+
+    public AfishRepository(int maxLength) {
+        this.maxLength = maxLength;
+    }
 
     public void addNewFilm(FilmItem item) {
         FilmItem[] tmp = new FilmItem[items.length + 1];
@@ -23,9 +31,9 @@ public class AfishRepository {
     public FilmItem[] findLast() {    //выводим 10 последних фильмов
         FilmItem[] all = items;
         FilmItem[] reversed = new FilmItem[0];
-        if (all.length > maxLenght) {
-            reversed = new FilmItem[maxLenght];
-            for (int i = 0; i < maxLenght; i++) {
+        if (all.length > maxLength) {
+            reversed = new FilmItem[maxLength];
+            for (int i = 0; i < maxLength; i++) {
                 reversed[i] = all[all.length - 1 - i];
             }
         } else {
@@ -38,15 +46,15 @@ public class AfishRepository {
         return reversed;
     }
 
-    public FilmItem[] findLastSetNumber(int setLenght) {   //выводим заданное количество фильмов
+    public FilmItem[] findLastSetNumber() {   //выводим заданное количество фильмов
         FilmItem[] all = items;
         FilmItem[] reversed = new FilmItem[0];
-        if (setLenght > all.length) {
-            setLenght = all.length;
+        if (maxLength > all.length) {
+            maxLength = all.length;
         }
-        if (all.length > setLenght) {
-            reversed = new FilmItem[setLenght];
-            for (int i = 0; i < setLenght; i++) {
+        if (all.length > maxLength) {
+            reversed = new FilmItem[maxLength];
+            for (int i = 0; i < maxLength; i++) {
                 reversed[i] = all[all.length - 1 - i];
             }
         } else {

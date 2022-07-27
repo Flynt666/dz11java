@@ -58,22 +58,58 @@ public class AfishRepositoryTest {
 
     @Test
     public void shouldFindLastSetNumber() {
+        AfishRepository films = new AfishRepository(50);
+        films.addNewFilm(item1);
+        films.addNewFilm(item2);
+        films.addNewFilm(item3);
+        films.addNewFilm(item4);
+        films.addNewFilm(item5);
+        films.addNewFilm(item6);
+        films.addNewFilm(item7);
+        films.addNewFilm(item8);
+        films.addNewFilm(item9);
+        films.addNewFilm(item10);
+        films.addNewFilm(item11);
+        films.addNewFilm(item12);
+        films.addNewFilm(item13);
         FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
-        FilmItem[] actual = films.findLastSetNumber(50);
+        FilmItem[] actual = films.findLastSetNumber();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldFindMoreAllLast() {
-        FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
-        FilmItem[] actual = films.findLastSetNumber(15);
+        AfishRepository films = new AfishRepository(15);
+        films.addNewFilm(item1);
+        films.addNewFilm(item2);
+        films.addNewFilm(item3);
+        films.addNewFilm(item4);
+        films.addNewFilm(item5);
+        films.addNewFilm(item6);
+        films.addNewFilm(item7);
+        films.addNewFilm(item8);
+        films.addNewFilm(item9);
+        films.addNewFilm(item10);
+        FilmItem[] expected = {item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
+        FilmItem[] actual = films.findLastSetNumber();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldFindOneLast() {
-        FilmItem[] expected = {item13};
-        FilmItem[] actual = films.findLastSetNumber(1);
+        AfishRepository films = new AfishRepository(1);
+        films.addNewFilm(item1);
+        films.addNewFilm(item2);
+        films.addNewFilm(item3);
+        films.addNewFilm(item4);
+        films.addNewFilm(item5);
+        films.addNewFilm(item6);
+        films.addNewFilm(item7);
+        films.addNewFilm(item8);
+        films.addNewFilm(item9);
+        films.addNewFilm(item10);
+        FilmItem[] expected = {item10};
+        FilmItem[] actual = films.findLastSetNumber();
         Assertions.assertArrayEquals(expected, actual);
     }
 }
