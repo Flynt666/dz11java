@@ -51,8 +51,19 @@ public class AfishRepositoryTest {
 
     @Test
     public void shouldFindLastTen() {
-        FilmItem[] expected = {item13, item12, item11, item10, item9, item8, item7, item6, item5, item4};
-        FilmItem[] actual = films.findLast();
+        AfishRepository films = new AfishRepository(10);
+        films.addNewFilm(item1);
+        films.addNewFilm(item2);
+        films.addNewFilm(item3);
+        films.addNewFilm(item4);
+        films.addNewFilm(item5);
+        films.addNewFilm(item6);
+        films.addNewFilm(item7);
+        films.addNewFilm(item8);
+        films.addNewFilm(item9);
+        films.addNewFilm(item10);
+        FilmItem[] expected = {item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
+        FilmItem[] actual = films.findLastSetNumber();
         Assertions.assertArrayEquals(expected, actual);
     }
 

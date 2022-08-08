@@ -28,23 +28,6 @@ public class AfishRepository {
 
     }
 
-    public FilmItem[] findLast() {    //выводим 10 последних фильмов
-        FilmItem[] all = items;
-        FilmItem[] reversed = new FilmItem[0];
-        if (all.length > maxLength) {
-            reversed = new FilmItem[maxLength];
-            for (int i = 0; i < maxLength; i++) {
-                reversed[i] = all[all.length - 1 - i];
-            }
-        } else {
-            reversed = new FilmItem[all.length];
-            for (int i = 0; i < all.length; i++) {
-                reversed[i] = all[all.length - 1 - i];
-            }
-        }
-
-        return reversed;
-    }
 
     public FilmItem[] findLastSetNumber() {   //выводим заданное количество фильмов
         FilmItem[] all = items;
